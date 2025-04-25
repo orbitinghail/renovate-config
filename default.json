@@ -1,0 +1,28 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:best-practices", "schedule:earlyMondays"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "packageRules": [
+    {
+      "groupName": "all other updates",
+      "matchUpdateTypes": ["minor", "digest"]
+    },
+    {
+      "groupName": "all other updates",
+      "matchCurrentVersion": "/^0/"
+    },
+    {
+      "groupName": "fjall",
+      "matchPackageNames": ["fjall", "lsm-tree", "value-log"]
+    },
+    {
+      "groupName": "all patch updates",
+      "matchUpdateTypes": ["patch"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
+    }
+  ]
+}
